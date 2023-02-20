@@ -8,11 +8,13 @@ namespace Tests
     [TestClass]
     public class BasicAudioTests
     {
+        //Local audio file for testing needs
+        string audioFilePath = @"";
+
         //Audio files have their names without extensions
         [TestMethod]
         public void AudioFilesNames()
         {
-            string audioFilePath = @"C:\Users\gryzo\Music\Frames Pyrosion (No Copyright Music).mp3";
             string audioFileName = Path.GetFileNameWithoutExtension(audioFilePath);
             AudioFile newAudioFile = new AudioFile(audioFilePath);
             Assert.AreEqual(audioFileName, newAudioFile.name);
@@ -23,7 +25,6 @@ namespace Tests
         public void AddAudioFiles()
         {
             Track track = new Track();
-            string audioFilePath = @"C:\Users\gryzo\Music\Frames Pyrosion (No Copyright Music).mp3";
             string audioFileName = Path.GetFileNameWithoutExtension(audioFilePath);
 
             track.AddAudioFile(audioFilePath);
@@ -38,7 +39,6 @@ namespace Tests
             Un4seen.Bass.BassNet.Registration("", "");
             //Initializing BASS library
             Bass.BASS_Init(1, 48000, BASSInit.BASS_DEVICE_FREQ, new IntPtr(0));
-            string audioFilePath = @"C:\Users\gryzo\Music\Frames Pyrosion (No Copyright Music).mp3";
             AudioFile newAudioFile = new AudioFile(audioFilePath);
             Assert.AreNotEqual(0, newAudioFile.GetHandle());
         }
@@ -47,7 +47,6 @@ namespace Tests
         [TestMethod]
         public void PlayTracks()
         {
-            string audioFilePath = @"C:\Users\gryzo\Music\Frames Pyrosion (No Copyright Music).mp3";
             Track track = new Track();
             track.AddAudioFile(audioFilePath);
             track.Play();
