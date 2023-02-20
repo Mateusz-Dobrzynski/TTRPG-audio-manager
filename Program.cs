@@ -15,7 +15,7 @@ namespace TTRPG_Audio_Manager
         {
             //Initializing GUI
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new Index());
         }
     }
 }
