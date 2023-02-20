@@ -1,3 +1,8 @@
+using System;
+using System.Windows.Forms.VisualStyles;
+using Un4seen.Bass;
+using Un4seen.Bass.AddOn.Mix;
+
 namespace TTRPG_Audio_Manager
 {
     internal static class Program
@@ -8,8 +13,7 @@ namespace TTRPG_Audio_Manager
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            //Initializing GUI
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
         }

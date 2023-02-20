@@ -9,4 +9,28 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Audio Manager Tests\**" />
+    <Compile Remove="Tests\**" />
+    <EmbeddedResource Remove="Audio Manager Tests\**" />
+    <EmbeddedResource Remove="Tests\**" />
+    <None Remove="Audio Manager Tests\**" />
+    <None Remove="Tests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Track.cs~RF50fe8e.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Bass.Net">
+      <HintPath>Bass.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BASS" Version="2.4.12.1" />
+    <PackageReference Include="NuGet.Frameworks" Version="6.4.0" />
+  </ItemGroup>
+
 </Project>
