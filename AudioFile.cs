@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Un4seen.Bass;
+using Un4seen.Bass.AddOn.Mix;
 using System;
 
 namespace TTRPG_Audio_Manager
@@ -25,8 +26,12 @@ namespace TTRPG_Audio_Manager
         /// <returns>Returns the stream handle</returns>
         public int GetHandle()
         {
-            int fileHandle = Bass.BASS_StreamCreateFile(path, 0, 0, new BASSFlag());
-            return fileHandle;
+            int fileHandle = Bass.BASS_StreamCreateFile(path, 0, 0, BASSFlag.BASS_SAMPLE_FLOAT | BASSFlag.BASS_STREAM_DECODE);
+            if (fileHandle == 0)
+            {
+                throw new Exception($"Stream creation error. Error code: {Bass.BASS_ErrorGetCode()}");
+            }
+            else return fileHandle;
         }
     }
 }

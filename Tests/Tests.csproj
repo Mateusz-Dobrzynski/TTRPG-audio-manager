@@ -10,10 +10,14 @@
 
   <ItemGroup>
     <None Remove="bass.dll" />
+    <None Remove="bassmix.dll" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="bass.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bassmix.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

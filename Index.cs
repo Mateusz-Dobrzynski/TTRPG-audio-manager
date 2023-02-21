@@ -30,6 +30,10 @@ namespace TTRPG_Audio_Manager
         {
             MessageBox.Show("Not implemented yet");
         }
-        
+
+        private void openSetButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

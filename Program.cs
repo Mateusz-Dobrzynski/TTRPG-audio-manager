@@ -5,7 +5,7 @@ using Un4seen.Bass.AddOn.Mix;
 
 namespace TTRPG_Audio_Manager
 {
-    internal static class Program
+    public class Program
     {
         /// <summary>
         ///  The main entry point for the application.
@@ -13,6 +13,9 @@ namespace TTRPG_Audio_Manager
         [STAThread]
         static void Main()
         {
+            //Bass registration and initialization
+            Registration reg = new Registration();
+
             //Initializing GUI
             ApplicationConfiguration.Initialize();
             Application.Run(new Index());

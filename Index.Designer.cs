@@ -40,6 +40,7 @@
             resources.ApplyResources(this.openSetButton, "openSetButton");
             this.openSetButton.Name = "openSetButton";
             this.openSetButton.UseVisualStyleBackColor = false;
+            this.openSetButton.Click += new System.EventHandler(this.openSetButton_Click);
             // 
             // loadSetFile
             // 

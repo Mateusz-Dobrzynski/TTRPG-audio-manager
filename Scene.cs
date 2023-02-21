@@ -8,24 +8,26 @@ namespace TTRPG_Audio_Manager
 {
 	public class Scene : IAudioLayer
 	{
-		public string name { get; set; }
+		public string name { get; set; } = "New Scene";
 		public int volume { get; set; } = 100;
-		List<Track> tracks = new List<Track>();
-		public Scene(string name)
+		public List<Track> tracks = new List<Track>();
+		public int handle;
+
+        /// <summary>
+        /// Simultaneously plays all the tracks within the scene
+        /// </summary>
+        public void Play()
 		{
-			this.name = name;
+			foreach (Track track in tracks) track.Play();
 		}
-		public void Play()
-		{
-            throw new NotImplementedException();
-		}
+
 		/// <summary>
 		/// Creates a new audio track and appends it to the tracks list
 		/// </summary>
-		private void AddTrack()
+		public void AddTrack()
 		{
-			int tracksCount = this.tracks.Count;
-			Track newAudioTrack = new Track();
+			Track track = new Track();
+			tracks.Add(track);
 		}
 	}
 }

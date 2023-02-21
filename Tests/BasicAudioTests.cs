@@ -2,16 +2,21 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.ComponentModel;
 using System;
 using Un4seen.Bass;
+using TTRPG_Audio_Manager;
 
 namespace Tests
 {
     [TestClass]
     public class BasicAudioTests
     {
-        //Local audio file for testing needs
-        string audioFilePath = @"";
+        /// <summary>
+        /// Local audio file for testing needs
+        /// </summary>
+        string audioFilePath = @"X:\RPG\Muzyka RPG\Muzyka Neuroshima\City On The Mesa.mp3";
 
-        //Audio files have their names without extensions
+        /// <summary>
+        /// Audio files have their names without extensions
+        /// </summary>
         [TestMethod]
         public void AudioFilesNames()
         {
@@ -20,7 +25,9 @@ namespace Tests
             Assert.AreEqual(audioFileName, newAudioFile.name);
         }
 
-        //Audio files are added to tracks
+        /// <summary>
+        /// Audio files are added to tracks
+        /// </summary>
         [TestMethod]
         public void AddAudioFiles()
         {
@@ -31,30 +38,52 @@ namespace Tests
             Assert.AreEqual(1, track.audioFiles.Count);
         }
 
-        //Streams from audio files can be created
+        /// <summary>
+        /// Streams from audio files can be created
+        /// </summary>
         [TestMethod]
         public void CreateStreamFromFile()
         {
-            //Registration. E-mail address and registration key must be provided to register successfully
-            Un4seen.Bass.BassNet.Registration("", "");
-            //Initializing BASS library
-            Bass.BASS_Init(1, 48000, BASSInit.BASS_DEVICE_FREQ, new IntPtr(0));
+            Registration reg = new Registration();
             AudioFile newAudioFile = new AudioFile(audioFilePath);
             Assert.AreNotEqual(0, newAudioFile.GetHandle());
         }
 
-        //Tracks can be played
+        /// <summary>
+        /// Tracks can be played
+        /// </summary>
         [TestMethod]
         public void PlayTracks()
         {
-            Track track = new Track();
-            track.AddAudioFile(audioFilePath);
-            track.Play();
+            Registration reg = new Registration();
+            Scene scene = new Scene();
+            scene.AddTrack();
+            scene.tracks[0].AddAudioFile(audioFilePath);
+            scene.tracks[0].Play();
         }
 
-        //Scenes can be created
+        /// <summary>
+        /// Scenes can be created and tracks can be added
+        /// </summary>
+        [TestMethod]
+        public void CreatingScenes()
+        {
+            Scene scene = new Scene();
+            scene.AddTrack();
+            Assert.AreEqual(1, scene.tracks.Count);
+        }
 
-        //Scenes can be played (multiple tracks can be played at once)
-
+        /// <summary>
+        /// Scenes with single tracks can be played
+        /// </summary>
+        [TestMethod]
+        public void PlayingScene()
+        {
+            Registration reg = new Registration();
+            Scene scene = new Scene();
+            scene.AddTrack();
+            scene.tracks[0].AddAudioFile(audioFilePath);
+            scene.Play();
+        }
     }
 }
