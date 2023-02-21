@@ -57,42 +57,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="openSetButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>318, 60</value>
-  </data>
-  <data name="openSetButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 50</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="openSetButton.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="openSetButton.Text" xml:space="preserve">
-    <value>Open Set</value>
-  </data>
-  <data name="&gt;&gt;openSetButton.Name" xml:space="preserve">
-    <value>openSetButton</value>
-  </data>
-  <data name="&gt;&gt;openSetButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;openSetButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;openSetButton.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="loadSetFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="loadSetFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>318, 137</value>
+    <value>525, 15</value>
   </data>
   <data name="loadSetFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 50</value>
+    <value>125, 25</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="loadSetFile.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -109,16 +85,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;loadSetFile.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="createNewSet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="createNewSet.Location" type="System.Drawing.Point, System.Drawing">
-    <value>318, 215</value>
+    <value>665, 15</value>
   </data>
   <data name="createNewSet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 50</value>
+    <value>125, 25</value>
   </data>
   <data name="createNewSet.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -136,6 +112,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;createNewSet.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="OpenFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>635, 405</value>
+  </data>
+  <data name="OpenFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 35</value>
+  </data>
+  <data name="OpenFile.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="OpenFile.Text" xml:space="preserve">
+    <value>Open Set</value>
+  </data>
+  <data name="&gt;&gt;OpenFile.Name" xml:space="preserve">
+    <value>OpenFile</value>
+  </data>
+  <data name="&gt;&gt;OpenFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OpenFile.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;OpenFile.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

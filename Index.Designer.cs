@@ -29,18 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Index));
-            this.openSetButton = new System.Windows.Forms.Button();
             this.loadSetFile = new System.Windows.Forms.Button();
             this.createNewSet = new System.Windows.Forms.Button();
+            this.OpenFile = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // openSetButton
-            // 
-            this.openSetButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            resources.ApplyResources(this.openSetButton, "openSetButton");
-            this.openSetButton.Name = "openSetButton";
-            this.openSetButton.UseVisualStyleBackColor = false;
-            this.openSetButton.Click += new System.EventHandler(this.openSetButton_Click);
             // 
             // loadSetFile
             // 
@@ -48,6 +40,7 @@
             resources.ApplyResources(this.loadSetFile, "loadSetFile");
             this.loadSetFile.Name = "loadSetFile";
             this.loadSetFile.UseVisualStyleBackColor = false;
+            this.loadSetFile.Click += new System.EventHandler(this.LoadSetFile_Click);
             // 
             // createNewSet
             // 
@@ -55,24 +48,32 @@
             resources.ApplyResources(this.createNewSet, "createNewSet");
             this.createNewSet.Name = "createNewSet";
             this.createNewSet.UseVisualStyleBackColor = false;
+            this.createNewSet.Click += new System.EventHandler(this.CreateNewSet_Click);
+            // 
+            // OpenFile
+            // 
+            this.OpenFile.BackColor = System.Drawing.SystemColors.ControlDark;
+            resources.ApplyResources(this.OpenFile, "OpenFile");
+            this.OpenFile.Name = "OpenFile";
+            this.OpenFile.UseVisualStyleBackColor = false;
+            this.OpenFile.Click += new System.EventHandler(this.OpenSet_Click);
             // 
             // Index
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Controls.Add(this.OpenFile);
             this.Controls.Add(this.createNewSet);
             this.Controls.Add(this.loadSetFile);
-            this.Controls.Add(this.openSetButton);
             this.Name = "Index";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Button openSetButton;
         private Button loadSetFile;
         private Button createNewSet;
+        private Button OpenFile;
     }
 }
