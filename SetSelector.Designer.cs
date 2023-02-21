@@ -61,6 +61,7 @@
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.ErrorText);
             this.Name = "SetSelector";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TTRPG Audio Manager: Set Selector";
             this.ResumeLayout(false);
             this.PerformLayout();

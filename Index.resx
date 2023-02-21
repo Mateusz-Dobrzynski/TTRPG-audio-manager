@@ -62,7 +62,7 @@
     <value>318, 60</value>
   </data>
   <data name="openSetButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 49</value>
+    <value>175, 50</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="openSetButton.TabIndex" type="System.Int32, mscorlib">
@@ -91,7 +91,7 @@
     <value>318, 137</value>
   </data>
   <data name="loadSetFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 49</value>
+    <value>175, 50</value>
   </data>
   <data name="loadSetFile.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -118,7 +118,7 @@
     <value>318, 215</value>
   </data>
   <data name="createNewSet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 49</value>
+    <value>175, 50</value>
   </data>
   <data name="createNewSet.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -145,7 +145,10 @@
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 450</value>
+    <value>804, 451</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>TTRPG Audio Manager</value>
