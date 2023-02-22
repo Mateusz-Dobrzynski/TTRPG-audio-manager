@@ -56,5 +56,10 @@ namespace TTRPG_Audio_Manager
             AudioFile newAudioFile = new AudioFile(path);
             this.audioFiles.Add(newAudioFile);
         }
+
+        public void RemoveAudioFile(string path)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

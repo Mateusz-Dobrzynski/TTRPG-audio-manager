@@ -41,6 +41,7 @@
 
   <ItemGroup>
     <PackageReference Include="BASS" Version="2.4.12.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="NuGet.Frameworks" Version="6.4.0" />
   </ItemGroup>
 
