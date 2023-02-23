@@ -68,5 +68,18 @@ namespace TTRPG_Audio_Manager
         {
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        /// Checks whether the object contains valid attributes.
+        /// </summary>
+        /// <returns>Returns true if file contents are valid. In other case returns false.</returns>
+        public bool ContentCheck()
+        {
+            if (name.GetType() != typeof(string))  return false;
+            if (volume < 0 || volume > 100) return false;
+            if (volume < 0 || volume > 100) return false;
+            if (scenes.GetType() != typeof(List<Scene>)) return false;
+            else return true;
+        }
     }
 }
