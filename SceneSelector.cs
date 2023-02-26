@@ -27,7 +27,7 @@ namespace TTRPG_Audio_Manager
         //adding new scene
         private void AddSceneBtn_Click(object sender, EventArgs e)
         {
-            Creator creator = new Creator();
+            Creator creator = new Creator("set");
             creator.ShowDialog();
             //string cName = creator.CreatorName();
             scenesSet.AddScene();

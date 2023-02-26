@@ -15,7 +15,7 @@ namespace TTRPG_Audio_Manager
             if (loadSFD.ShowDialog() == DialogResult.OK)
             {
                 //not implemented fully, because of lack of serializer, but implemented the procedure to choose a directory
-                MessageBox.Show(text: $"Not implemented yet but chosen path is: {loadSFD.FileName}"); 
+                MessageBox.Show(text: $"Not implemented yet but chosen path is: {loadSFD.FileName}");
             }
         }
         //Opening a Set Selector window, where user can open downloaded sets
@@ -27,9 +27,11 @@ namespace TTRPG_Audio_Manager
             this.Show();
         }
         //Creating new set from scratch. Initially it'll create empty set, which then can be choosed end edited in Set Selector
-        private void CreateNewSet_Click(object sender, EventArgs e)
+        public void CreateNewSet_Click(object sender, EventArgs e)
         {
+            Creator creator = new Creator("set");
             ScenesSet scenesSet = new ScenesSet();
+            creator.ShowDialog();
         }
     }
 }
