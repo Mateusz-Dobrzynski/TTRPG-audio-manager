@@ -41,35 +41,5 @@ namespace TTRPG_Audio_Manager
             Application.Run(new Index());
         }
 
-        /// <summary>
-        /// Loads a scene set from a provided .json file.
-        /// </summary>
-        /// <param name="path">Path of the json file</param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
-        /// <exception cref="FileFormatException"></exception>
-        /// <exception cref="DirectoryNotFoundException"></exception>
-        public ScenesSet LoadFile(string path)
-        {
-            if (File.Exists(path))
-            {
-                if (Path.GetExtension(path) == ".json")
-                {
-                    // Deserializes the file and checks whether it's a valid Set file
-                    string fileContent = File.ReadAllText(path);
-                    ScenesSet loadedSet = JsonConvert.DeserializeObject<ScenesSet>(fileContent);
-                    if (loadedSet.ContentCheck() == true && loadedSet != null) return loadedSet;
-                    else throw new Exception($"The loaded file {path} is not a set file or the loaded set file is corrupted.");
-                }
-                else
-                {
-                    throw new FileFormatException("Only .json files are accepted");
-                }
-            }
-            else
-            {
-                throw new DirectoryNotFoundException();
-            }
-        }
     }
 }

@@ -33,9 +33,10 @@ namespace TTRPG_Audio_Manager
         /// <summary>
         /// Creates a new scene and adds it to the set
         /// </summary>
-        public void AddScene()
+        public void AddScene(string? name)
         {
             Scene scene = new Scene();
+            scene.name = name;
             scenes.Add(scene);
         }
 
@@ -57,6 +58,41 @@ namespace TTRPG_Audio_Manager
             else
             {
                 throw new DirectoryNotFoundException($"Directory \"{directory}\" doesn't exist");
+            }
+        }
+
+        /// <summary>
+        /// Loads a scene set from a provided .json file.
+        /// </summary>
+        /// <param name="path">Path of the json file</param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="FileFormatException"></exception>
+        /// <exception cref="DirectoryNotFoundException"></exception>
+        public ScenesSet(string? path = null)
+        {
+            if (path != null)
+            {
+                if (File.Exists(path))
+                {
+                    if (Path.GetExtension(path) == ".json")
+                    {
+                        // Deserializes the file and checks whether it's a valid Set file
+                        string fileContent = File.ReadAllText(path);
+                        this.name = JsonConvert.DeserializeObject<ScenesSet>(fileContent).name;
+                        this.scenes = JsonConvert.DeserializeObject<ScenesSet>(fileContent).scenes;
+                        this.volume = JsonConvert.DeserializeObject<ScenesSet>(fileContent).volume;
+                        if (this.ContentCheck() == false || this == null) throw new Exception($"The loaded file {path} is not a set file or the loaded set file is corrupted.");
+                    }
+                    else
+                    {
+                        throw new FileFormatException("Only .json files are accepted");
+                    }
+                }
+                else
+                {
+                    throw new DirectoryNotFoundException();
+                }
             }
         }
 

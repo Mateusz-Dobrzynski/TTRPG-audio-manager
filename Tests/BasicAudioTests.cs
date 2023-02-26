@@ -12,7 +12,7 @@ namespace Tests
         /// <summary>
         /// Local audio file for testing needs
         /// </summary>
-        string audioFilePath = @"X:\RPG\Muzyka RPG\Muzyka Neuroshima\City On The Mesa.mp3";
+        string audioFilePath = @"E:\Spotify\Imported\gravity-falls-weirdmageddon-3-take-back-the-falls-soundtrack-shacktron-battle.mp3";
 
         /// <summary>
         /// Audio files have their names without extensions
@@ -84,6 +84,18 @@ namespace Tests
             scene.AddTrack();
             scene.tracks[0].AddAudioFile(audioFilePath);
             scene.Play();
+        }
+
+        /// <summary>
+        /// Scenes can be added to sets
+        /// </summary>
+        [TestMethod]
+        public void AddScenes()
+        {
+            ScenesSet set = new ScenesSet();
+            set.AddScene("name");
+            Assert.AreEqual(1, set.scenes.Count);
+            Assert.AreEqual("name", set.scenes[0].name);
         }
     }
 }

@@ -85,7 +85,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;loadSetFile.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="createNewSet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -112,31 +112,88 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;createNewSet.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="OpenFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>635, 405</value>
-  </data>
-  <data name="OpenFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 35</value>
-  </data>
-  <data name="OpenFile.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="OpenFile.Text" xml:space="preserve">
-    <value>Open Set</value>
+  <data name="directoryBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;OpenFile.Name" xml:space="preserve">
-    <value>OpenFile</value>
+  <data name="directoryBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>344, 15</value>
   </data>
-  <data name="&gt;&gt;OpenFile.Type" xml:space="preserve">
+  <data name="directoryBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 25</value>
+  </data>
+  <data name="directoryBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="directoryBtn.Text" xml:space="preserve">
+    <value>Choose Directory Path</value>
+  </data>
+  <data name="&gt;&gt;directoryBtn.Name" xml:space="preserve">
+    <value>directoryBtn</value>
+  </data>
+  <data name="&gt;&gt;directoryBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;OpenFile.Parent" xml:space="preserve">
+  <data name="&gt;&gt;directoryBtn.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;OpenFile.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;directoryBtn.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="dLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 20</value>
+  </data>
+  <data name="dLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 15</value>
+  </data>
+  <data name="dLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="dLabel.Text" xml:space="preserve">
+    <value>Selected Path:</value>
+  </data>
+  <data name="&gt;&gt;dLabel.Name" xml:space="preserve">
+    <value>dLabel</value>
+  </data>
+  <data name="&gt;&gt;dLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dLabel.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="directoryPath.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="directoryPath.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="directoryPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 20</value>
+  </data>
+  <data name="directoryPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 15</value>
+  </data>
+  <data name="directoryPath.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;directoryPath.Name" xml:space="preserve">
+    <value>directoryPath</value>
+  </data>
+  <data name="&gt;&gt;directoryPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;directoryPath.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;directoryPath.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

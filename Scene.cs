@@ -8,10 +8,15 @@ namespace TTRPG_Audio_Manager
 {
 	public class Scene : IAudioLayer
 	{
-		public string name { get; set; } = "New Scene";
+		public string name { get; set; }
 		public int volume { get; set; } = 100;
 		public List<Track> tracks = new List<Track>();
 		public int handle;
+
+		public Scene(string name = "New Scene")
+		{
+			this.name = name;
+		}
 
         /// <summary>
         /// Simultaneously plays all the tracks within the scene

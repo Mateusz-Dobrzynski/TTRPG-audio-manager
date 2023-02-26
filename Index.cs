@@ -4,9 +4,18 @@ namespace TTRPG_Audio_Manager
 {
     public partial class Index : Form
     {
+        //Creating an instance so other windows can access certain objects in this window
+        public static Index instance;
+        public Label dPath;
+        public ScenesSet currentSet;
+
+        string FBDPath;
         public Index()
         {
             InitializeComponent();
+            //assigning objects to instance
+            instance = this;
+            dPath = directoryPath;
         }
         //Loading existing set by choosing the exact directory path
         private void LoadSetFile_Click(object sender, EventArgs e)
@@ -14,24 +23,52 @@ namespace TTRPG_Audio_Manager
             OpenFileDialog loadSFD = new OpenFileDialog();
             if (loadSFD.ShowDialog() == DialogResult.OK)
             {
-                //not implemented fully, because of lack of serializer, but implemented the procedure to choose a directory
-                MessageBox.Show(text: $"Not implemented yet but chosen path is: {loadSFD.FileName}");
+                currentSet = new ScenesSet(loadSFD.FileName);
+                dPath.Text = Path.GetDirectoryName(loadSFD.FileName);
+                Button newSet = new Button();
+                Controls.Add(newSet);
+                newSet.Location = new Point(50, 50);
+                newSet.Text = currentSet.name;
+                newSet.UseVisualStyleBackColor = true;
+                newSet.Width = 150;
+                newSet.Height = 50;
+                newSet.Click += new EventHandler(OpenSet_Click);
             }
         }
         //Opening a Set Selector window, where user can open downloaded sets
-        private void OpenSet_Click(object sender, EventArgs e)
+        public void OpenSet_Click(object sender, EventArgs e)
         {
             SceneSelector sceneSelector = new SceneSelector();
             this.Hide();
             sceneSelector.ShowDialog();
             this.Show();
         }
-        //Creating new set from scratch. Initially it'll create empty set, which then can be choosed end edited in Set Selector
+        //Creating new scene with pop-up window to give it a name. Then the set is saved in the chosen directory
         public void CreateNewSet_Click(object sender, EventArgs e)
         {
-            Creator creator = new Creator("set");
-            ScenesSet scenesSet = new ScenesSet();
+            Creator creator = new Creator();
             creator.ShowDialog();
+            currentSet = new ScenesSet();
+            currentSet.name = Creator.instance.txtBox.Text;
+            currentSet.Save(FBDPath);
+            Button newSet = new Button();
+            Controls.Add(newSet);
+            newSet.Location = new Point(50, 50);
+            newSet.Text = currentSet.name;
+            newSet.UseVisualStyleBackColor = true;
+            newSet.Width = 150;
+            newSet.Height = 50;
+            newSet.Click += new EventHandler(OpenSet_Click);
+        }
+        //Chooses base directory in which sets will be saved
+        private void directoryBtn_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog loadFBD = new FolderBrowserDialog();
+            if (loadFBD.ShowDialog() == DialogResult.OK)
+            {
+                FBDPath = loadFBD.SelectedPath;
+                directoryPath.Text = loadFBD.SelectedPath;
+            }
         }
     }
 }

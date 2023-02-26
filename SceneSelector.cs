@@ -12,8 +12,9 @@ namespace TTRPG_Audio_Manager
 {
     public partial class SceneSelector : Form
     {
-        //temp
-        ScenesSet scenesSet = new ScenesSet();
+        //assigning local variables using Index instance
+        string directoryPath = Index.instance.dPath.Text;
+        ScenesSet currentSet = Index.instance.currentSet;
         public SceneSelector()
         {
             InitializeComponent();
@@ -27,10 +28,11 @@ namespace TTRPG_Audio_Manager
         //adding new scene
         private void AddSceneBtn_Click(object sender, EventArgs e)
         {
-            Creator creator = new Creator("set");
+            Creator creator = new Creator();
             creator.ShowDialog();
-            //string cName = creator.CreatorName();
-            scenesSet.AddScene();
+            string name = Creator.instance.txtBox.Text;
+            currentSet.AddScene(name);
+            currentSet.Save(directoryPath);
         }
     }
 }
