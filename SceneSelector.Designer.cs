@@ -30,6 +30,8 @@
         {
             this.ReturnButton = new System.Windows.Forms.Button();
             this.AddSceneBtn = new System.Windows.Forms.Button();
+            this.sceneBox = new System.Windows.Forms.ComboBox();
+            this.openSceneBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ReturnButton
@@ -55,17 +57,38 @@
             this.AddSceneBtn.UseVisualStyleBackColor = false;
             this.AddSceneBtn.Click += new System.EventHandler(this.AddSceneBtn_Click);
             // 
+            // sceneBox
+            // 
+            this.sceneBox.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.sceneBox.FormattingEnabled = true;
+            this.sceneBox.Location = new System.Drawing.Point(280, 130);
+            this.sceneBox.Name = "sceneBox";
+            this.sceneBox.Size = new System.Drawing.Size(225, 23);
+            this.sceneBox.TabIndex = 3;
+            // 
+            // openSceneBtn
+            // 
+            this.openSceneBtn.Location = new System.Drawing.Point(325, 175);
+            this.openSceneBtn.Name = "openSceneBtn";
+            this.openSceneBtn.Size = new System.Drawing.Size(125, 35);
+            this.openSceneBtn.TabIndex = 4;
+            this.openSceneBtn.Text = "Open Scene";
+            this.openSceneBtn.UseVisualStyleBackColor = true;
+            this.openSceneBtn.Click += new System.EventHandler(this.sceneOpener);
+            // 
             // SceneSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.openSceneBtn);
+            this.Controls.Add(this.sceneBox);
             this.Controls.Add(this.AddSceneBtn);
             this.Controls.Add(this.ReturnButton);
             this.Name = "SceneSelector";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TTRPG Audio Manager: Set Selector";
+            this.Text = "TTRPG Audio Manager: Scene Selector";
             this.ResumeLayout(false);
 
         }
@@ -73,5 +96,7 @@
         #endregion
         private Button ReturnButton;
         private Button AddSceneBtn;
+        private ComboBox sceneBox;
+        private Button openSceneBtn;
     }
 }
