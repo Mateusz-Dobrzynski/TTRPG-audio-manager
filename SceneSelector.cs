@@ -20,19 +20,14 @@ namespace TTRPG_Audio_Manager
         public SceneSelector()
         {
             InitializeComponent();
+            //assigning object to instance and checking if chosen set has already any scenes. If yes then they will be added to the lsit
             instance = this;
             foreach (Scene x in currentSet.scenes) {
-                //Button button = new Button();
-                //button.Click += new EventHandler(sceneOpener);
-                //button.Text = x.name;
-                //button.Width = 220;
-                //button.Height = 21;
-                //button.ForeColor = Color.White;
                 sceneBox.Items.Add(x.name);
             }
 
         }
-        //Set Selector is a place, where user can open created/imported sets, which will open in new window
+        //return button to the Index window
         private void ReturnButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
@@ -40,6 +35,7 @@ namespace TTRPG_Audio_Manager
         //adding new scene
         private void AddSceneBtn_Click(object sender, EventArgs e)
         {
+            //adding scene to the set with name provided by the user, then saving it and adding the scene to the list
             Creator creator = new Creator();
             creator.ShowDialog();
             string name = Creator.instance.txtBox.Text;
@@ -47,17 +43,19 @@ namespace TTRPG_Audio_Manager
             currentSet.Save(directoryPath);
             sceneBox.Items.Add(name);
         }
+        //opening the chosen scene
         private void sceneOpener(object sender, EventArgs e)
         {
+            //this takes the text value from list and iterates through all scenes. If the names match then the scene is selected
             string name = sceneBox.Text;
             foreach (Scene x in currentSet.scenes)
             {
                 if(x.name == name)
                 {
                     Scene chosenScene = x;
+                    MessageBox.Show($"Not implemented but name: {x.name}, volume: {x.volume}");
                 }
             }
         }
-        int x = 1;
     }
 }
