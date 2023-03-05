@@ -11,9 +11,14 @@ namespace TTRPG_Audio_Manager
 {
     public class Track : IAudioLayer
     {
-        public string name { get; set; } = "New Track";
+        public string name { get; set; }
         public int volume { get; set; } = 100;
         public List<AudioFile> audioFiles = new List<AudioFile>();
+
+        public Track(string name)
+        {
+            this.name = name;
+        }
 
         /// <summary>
         /// Plays all the audio files assigned to the track one by one

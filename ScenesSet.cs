@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Un4seen.Bass.AddOn.Mix;
 using Un4seen.Bass;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
+using System.Resources;
 
 namespace TTRPG_Audio_Manager
 {
@@ -79,10 +81,14 @@ namespace TTRPG_Audio_Manager
                     {
                         // Deserializes the file and checks whether it's a valid Set file
                         string fileContent = File.ReadAllText(path);
-                        this.name = JsonConvert.DeserializeObject<ScenesSet>(fileContent).name;
-                        this.scenes = JsonConvert.DeserializeObject<ScenesSet>(fileContent).scenes;
-                        this.volume = JsonConvert.DeserializeObject<ScenesSet>(fileContent).volume;
-                        if (this.ContentCheck() == false || this == null) throw new Exception($"The loaded file {path} is not a set file or the loaded set file is corrupted.");
+                        if (this.ContentCheck() == false)
+                            throw new Exception($"The loaded file {path} is not a set file or the loaded set file is corrupted.");
+                        else
+                        {
+                            this.name = JsonConvert.DeserializeObject<ScenesSet>(fileContent).name;
+                            this.scenes = JsonConvert.DeserializeObject<ScenesSet>(fileContent).scenes;
+                            this.volume = JsonConvert.DeserializeObject<ScenesSet>(fileContent).volume;
+                        }
                     }
                     else
                     {
@@ -99,10 +105,12 @@ namespace TTRPG_Audio_Manager
         /// <summary>
         /// Checks, whether the provided string can be a file name.
         /// </summary>
-        /// <returns>Returns true if provide name can be used as a file name. In other case, returns false</returns>
+        /// <returns>Returns true if provided name can be used as a file name. In other case, returns false</returns>
         public bool NameCheck(string name)
         {
-            throw new NotImplementedException();
+            Regex pattern = new Regex(@"[<>:\""\/\\\|\?\*]");
+            if (pattern.IsMatch(name)) return false;
+            else return true;
         }
 
         /// <summary>
