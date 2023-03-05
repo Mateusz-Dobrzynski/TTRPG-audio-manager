@@ -29,9 +29,10 @@ namespace TTRPG_Audio_Manager
 		/// <summary>
 		/// Creates a new audio track and appends it to the tracks list
 		/// </summary>
-		public void AddTrack()
+		public void AddTrack(string? name)
 		{
 			Track track = new Track();
+			track.name = name;
 			tracks.Add(track);
 		}
 	}

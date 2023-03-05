@@ -13,6 +13,7 @@ namespace TTRPG_Audio_Manager
     {
         public string name { get; set; } = "New Track";
         public int volume { get; set; } = 100;
+        int mixerHandle;
         public List<AudioFile> audioFiles = new List<AudioFile>();
 
         /// <summary>
@@ -21,7 +22,7 @@ namespace TTRPG_Audio_Manager
         public void Play()
         {
             //Creating a mixer stream
-			int mixerHandle = BassMix.BASS_Mixer_StreamCreate(44100, 2, BASSFlag.BASS_SAMPLE_FLOAT | BASSFlag.BASS_MIXER_QUEUE);
+			mixerHandle = BassMix.BASS_Mixer_StreamCreate(44100, 2, BASSFlag.BASS_SAMPLE_FLOAT | BASSFlag.BASS_MIXER_QUEUE);
             if (mixerHandle != 0)
             {
                 //TO-DO: The audio files can be added to the queue in random order (depending on the user input)
@@ -46,6 +47,20 @@ namespace TTRPG_Audio_Manager
             }
         }
 
+        /// <summary>
+        /// Stops playback of the current track. If the current track is not playing, nothing happens
+        /// </summary>
+        public void Stop()
+        {
+            try
+            {
+                BASSActive status = Bass.BASS_ChannelIsActive(mixerHandle);
+                if (status == BASSActive.BASS_ACTIVE_PLAYING) Bass.BASS_ChannelStop(mixerHandle);
+            }
+            catch
+            {
+            }
+        }
 
         /// <summary>
         /// Appends na audio file to the audioFiles list.

@@ -28,7 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.tblPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.btnEnd = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // tblPanel
+            // 
+            this.tblPanel.ColumnCount = 5;
+            this.tblPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121F));
+            this.tblPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 315F));
+            this.tblPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tblPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
+            this.tblPanel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tblPanel.Location = new System.Drawing.Point(12, 31);
+            this.tblPanel.Name = "tblPanel";
+            this.tblPanel.RowCount = 1;
+            this.tblPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tblPanel.Size = new System.Drawing.Size(770, 342);
+            this.tblPanel.TabIndex = 0;
+            // 
+            // btnEnd
+            // 
+            this.btnEnd.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnEnd.Location = new System.Drawing.Point(38, 394);
+            this.btnEnd.Name = "btnEnd";
+            this.btnEnd.Size = new System.Drawing.Size(97, 35);
+            this.btnEnd.TabIndex = 1;
+            this.btnEnd.Text = "End";
+            this.btnEnd.UseVisualStyleBackColor = false;
+            this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
             // 
             // SceneEditor
             // 
@@ -36,6 +65,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(794, 441);
+            this.Controls.Add(this.btnEnd);
+            this.Controls.Add(this.tblPanel);
             this.Name = "SceneEditor";
             this.Text = "TTRPG Audio Manager: Scene Editor";
             this.ResumeLayout(false);
@@ -43,5 +74,8 @@
         }
 
         #endregion
+
+        private TableLayoutPanel tblPanel;
+        private Button btnEnd;
     }
 }

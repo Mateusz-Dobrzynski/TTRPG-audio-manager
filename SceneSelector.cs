@@ -15,8 +15,8 @@ namespace TTRPG_Audio_Manager
         public static SceneSelector instance;
         public Scene chosenScene;
         //assigning local variables using Index instance
-        string directoryPath = Index.instance.dPath.Text;
-        ScenesSet currentSet = Index.instance.currentSet;
+        public string directory = Index.instance.dPath.Text;
+        public ScenesSet currentSet = Index.instance.currentSet;
         public SceneSelector()
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace TTRPG_Audio_Manager
             creator.ShowDialog();
             string name = Creator.instance.txtBox.Text;
             currentSet.AddScene(name);
-            currentSet.Save(directoryPath);
+            currentSet.Save(directory);
             sceneBox.Items.Add(name);
         }
         //opening the chosen scene
@@ -52,8 +52,9 @@ namespace TTRPG_Audio_Manager
             {
                 if(x.name == name)
                 {
-                    Scene chosenScene = x;
-                    MessageBox.Show($"Not implemented but name: {x.name}, volume: {x.volume}");
+                    chosenScene = x;
+                    SceneEditor sceneEditor = new SceneEditor();
+                    sceneEditor.ShowDialog();
                 }
             }
         }
