@@ -12,7 +12,7 @@ namespace Tests
         /// <summary>
         /// Local audio file for testing needs
         /// </summary>
-        string audioFilePath = @"E:\Spotify\Imported\gravity-falls-weirdmageddon-3-take-back-the-falls-soundtrack-shacktron-battle.mp3";
+        string audioFilePath = @"";
 
         /// <summary>
         /// Audio files have their names without extensions
@@ -31,7 +31,7 @@ namespace Tests
         [TestMethod]
         public void AddAudioFiles()
         {
-            Track track = new Track();
+            Track track = new Track("name");
             string audioFileName = Path.GetFileNameWithoutExtension(audioFilePath);
 
             track.AddAudioFile(audioFilePath);
