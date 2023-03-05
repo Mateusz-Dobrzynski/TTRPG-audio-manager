@@ -17,7 +17,7 @@ namespace TTRPG_Audio_Manager
         public Registration()
         {
             //Registration. E-mail address and registration key must be provided to register successfully
-            Un4seen.Bass.BassNet.Registration("mateusz.dobrzynski64@gmail.com", "2X2233330152222");
+            Un4seen.Bass.BassNet.Registration("", "");
             //Initializing BASS library
             bool initializationResult = Bass.BASS_Init(-1, 48000, BASSInit.BASS_DEVICE_FREQ, IntPtr.Zero);
             if (initializationResult != true) throw new Exception("Bass initialization error");
