@@ -26,6 +26,11 @@ namespace TTRPG_Audio_Manager
 			foreach (Track track in tracks) track.Play();
 		}
 
+		public void Stop()
+		{
+			throw new NotImplementedException();
+		}
+
 		/// <summary>
 		/// Creates a new audio track and appends it to the tracks list
 		/// </summary>

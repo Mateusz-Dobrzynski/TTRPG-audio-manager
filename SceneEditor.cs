@@ -190,5 +190,10 @@ namespace TTRPG_Audio_Manager
                 count += 1;
             }
         }
+
+        private void playSceneBtn_Click(object sender, EventArgs e)
+        {
+            currentScene.Play();
+        }
     }
 }

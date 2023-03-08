@@ -30,6 +30,7 @@
         {
             this.tblPanel = new System.Windows.Forms.TableLayoutPanel();
             this.btnEnd = new System.Windows.Forms.Button();
+            this.playSceneBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tblPanel
@@ -61,12 +62,24 @@
             this.btnEnd.UseVisualStyleBackColor = false;
             this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
             // 
+            // playSceneBtn
+            // 
+            this.playSceneBtn.BackColor = System.Drawing.Color.LimeGreen;
+            this.playSceneBtn.Location = new System.Drawing.Point(156, 394);
+            this.playSceneBtn.Name = "playSceneBtn";
+            this.playSceneBtn.Size = new System.Drawing.Size(97, 35);
+            this.playSceneBtn.TabIndex = 2;
+            this.playSceneBtn.Text = "Play Scene";
+            this.playSceneBtn.UseVisualStyleBackColor = false;
+            this.playSceneBtn.Click += new System.EventHandler(this.playSceneBtn_Click);
+            // 
             // SceneEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(794, 441);
+            this.Controls.Add(this.playSceneBtn);
             this.Controls.Add(this.btnEnd);
             this.Controls.Add(this.tblPanel);
             this.Name = "SceneEditor";
@@ -79,5 +92,6 @@
 
         private TableLayoutPanel tblPanel;
         private Button btnEnd;
+        private Button playSceneBtn;
     }
 }
