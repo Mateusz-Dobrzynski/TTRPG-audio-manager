@@ -54,7 +54,7 @@ namespace TTRPG_Audio_Manager
                 {
                     chosenScene = x;
                     SceneEditor sceneEditor = new SceneEditor();
-                    sceneEditor.ShowDialog();
+                    sceneEditor.Show();
                 }
             }
         }
