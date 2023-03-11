@@ -27,12 +27,25 @@ namespace TTRPG_Audio_Manager
         /// <returns>Returns the stream handle</returns>
         public int GetHandle()
         {
-            fileHandle = Bass.BASS_StreamCreateFile(path, 0, 0, BASSFlag.BASS_SAMPLE_FLOAT | BASSFlag.BASS_STREAM_DECODE | BASSFlag.BASS_STREAM_AUTOFREE);
+            fileHandle = Bass.BASS_StreamCreateFile(path, 0, 0, BASSFlag.BASS_SAMPLE_FLOAT | BASSFlag.BASS_STREAM_DECODE);
             if (fileHandle == 0)
             {
                 throw new Exception($"Stream creation error. Error code: {Bass.BASS_ErrorGetCode()}");
             }
             else return fileHandle;
+        }
+
+        /// <summary>
+        /// Adds the file stream to a mixer with a given handle.
+        /// </summary>
+        /// <param name="mixerHandle">Handle of the parent mixer channel</param>
+        public void Queue(int mixerHandle)
+        {
+            int fileHandle = GetHandle();
+            if (BassMix.BASS_Mixer_StreamAddChannel(mixerHandle, fileHandle, BASSFlag.BASS_STREAM_AUTOFREE) == false)
+            {
+                throw new Exception($"Failed to add channel to the mix stream: {Bass.BASS_ErrorGetCode()}");
+            }
         }
     }
 }

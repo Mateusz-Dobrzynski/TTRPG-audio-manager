@@ -13,8 +13,15 @@ namespace TTRPG_Audio_Manager
     {
         public string name { get; set; }
         public int volume { get; set; } = 100;
+        /// <summary>
+        /// Handle of the track mixer channel
+        /// </summary>
         int mixerHandle;
         public List<AudioFile> audioFiles = new List<AudioFile>();
+        /// <summary>
+        /// If true, files in a track will be played in random order.
+        /// </summary>
+        bool shuffle = false;
 
         public Track(string name)
         {
@@ -30,17 +37,27 @@ namespace TTRPG_Audio_Manager
         {
             if (GetChannelStatus() != BASSActive.BASS_ACTIVE_PLAYING)
             {
-                //TO-DO: The audio files can be added to the queue in random order (depending on the user input)
-                foreach (AudioFile file in audioFiles)
+                //Queuing audio files in a (pseudo)random order
+                if (shuffle)
                 {
-                    //Getting a handle of every file in the audio track and adds it to the queue
-                    int fileHandle = file.GetHandle();
-                    if (BassMix.BASS_Mixer_StreamAddChannel(mixerHandle, fileHandle, BASSFlag.BASS_STREAM_AUTOFREE) == false)
+                    int coprime = GetCoprime(audioFiles.Count);
+                    Random rand = new Random();
+                    //Creating a random offset (if it wasn't for the offset, the first random index would always be 0)
+                    int offset = rand.Next(audioFiles.Count);
+                    for (int i = 0; i < audioFiles.Count; i++)
                     {
-                        throw new Exception($"Failed to add channel to the mix stream: {Bass.BASS_ErrorGetCode()}");
+                        //Selecting a current index in this way ensures that every index is visited exactly once
+                        int currentIndex = (i * coprime + offset)  % audioFiles.Count;
+                        audioFiles[currentIndex].Queue(mixerHandle);
                     }
                 }
-                //Beginning of playback
+                //Queuing audio files in order they were added
+                else
+                {
+                    for (int i = 0; i < audioFiles.Count; i++)
+                        audioFiles[i].Queue(mixerHandle);
+                }
+                //Playing queued audio files
                 if (Bass.BASS_ChannelPlay(mixerHandle, true) == false)
                 {
                     throw new Exception($"Failed to play track: {Bass.BASS_ErrorGetCode()}");
@@ -118,6 +135,42 @@ namespace TTRPG_Audio_Manager
         public void RemoveAudioFile(string path)
         {
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Finds the greatest common divisor (GCD) of a and b using the Euclidean algorithm.
+        /// </summary>
+        /// <returns>GCD of a and b.</returns>
+        public int GreatestCommonDivisor(int a, int b)
+        {
+            if (a == 0)
+                return b;
+            if (b == 0)
+                return a;
+            if (b > 0)
+                return GreatestCommonDivisor(b, a % b);
+            else
+                return a;
+        }
+
+        /// <summary>
+        ///Randomly finds coprime of n.
+        ///Coprime is a number such that the greatest common divisor
+        ///of coprime and n is 1
+        /// </summary>
+        /// <returns>A coprime of n within a range of [n/2, n)</returns>
+        int GetCoprime(int n)
+        {
+            int coprime = 0;
+            do
+            {
+                Random rand = new Random();
+                int coprimeCandidate = rand.Next(n / 2, n);
+                if (GreatestCommonDivisor(coprimeCandidate, audioFiles.Count) == 1)
+                    coprime = coprimeCandidate;
+            }
+            while (coprime == 0);
+            return coprime;
         }
     }
 }

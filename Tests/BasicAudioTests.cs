@@ -57,7 +57,7 @@ namespace Tests
         {
             Registration reg = new Registration();
             Scene scene = new Scene();
-            scene.AddTrack();
+            scene.AddTrack("name");
             scene.tracks[0].AddAudioFile(audioFilePath);
             scene.tracks[0].Play();
         }
@@ -69,7 +69,7 @@ namespace Tests
         public void CreatingScenes()
         {
             Scene scene = new Scene();
-            scene.AddTrack();
+            scene.AddTrack("name");
             Assert.AreEqual(1, scene.tracks.Count);
         }
 
@@ -81,7 +81,7 @@ namespace Tests
         {
             Registration reg = new Registration();
             Scene scene = new Scene();
-            scene.AddTrack();
+            scene.AddTrack("name");
             scene.tracks[0].AddAudioFile(audioFilePath);
             scene.Play();
         }
