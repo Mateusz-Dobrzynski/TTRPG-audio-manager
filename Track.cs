@@ -19,6 +19,8 @@ namespace TTRPG_Audio_Manager
         public Track(string name)
         {
             this.name = name;
+			mixerHandle = BassMix.BASS_Mixer_StreamCreate(44100, 2, BASSFlag.BASS_SAMPLE_FLOAT | BASSFlag.BASS_MIXER_QUEUE);
+            if (mixerHandle == 0) throw new Exception($"Failed to create a track mixer: {Bass.BASS_ErrorGetCode()}"); 
         }
 
         /// <summary>
@@ -26,9 +28,7 @@ namespace TTRPG_Audio_Manager
         /// </summary>
         public void Play()
         {
-            //Creating a mixer stream
-			mixerHandle = BassMix.BASS_Mixer_StreamCreate(44100, 2, BASSFlag.BASS_SAMPLE_FLOAT | BASSFlag.BASS_MIXER_QUEUE);
-            if (mixerHandle != 0)
+            if (GetChannelStatus() != BASSActive.BASS_ACTIVE_PLAYING)
             {
                 //TO-DO: The audio files can be added to the queue in random order (depending on the user input)
                 foreach (AudioFile file in audioFiles)
@@ -46,24 +46,62 @@ namespace TTRPG_Audio_Manager
                     throw new Exception($"Failed to play track: {Bass.BASS_ErrorGetCode()}");
                 }
             }
-            else
+        }
+
+        /// <summary>
+        /// Pauses playback of the current track. If the current track is not playing, nothing happens.
+        /// </summary>
+        /// <remarks>
+        /// If this method is used, the Play() method will resume the playback instead of starting it anew.
+        /// </remarks>
+        /// <seealso cref="Play"/>
+        public void Pause()
+        {
+            if (GetChannelStatus() == BASSActive.BASS_ACTIVE_PLAYING)
             {
-                throw new Exception($"Failed to create a track mixer: {Bass.BASS_ErrorGetCode()}");
+                Bass.BASS_ChannelStop(mixerHandle);
             }
         }
 
         /// <summary>
-        /// Stops playback of the current track. If the current track is not playing, nothing happens
+        /// Stops playback of the current track. If the current track is not playing, nothing happens.
         /// </summary>
         public void Stop()
         {
-            try
+            if (GetChannelStatus() == BASSActive.BASS_ACTIVE_PLAYING)
             {
-                BASSActive status = Bass.BASS_ChannelIsActive(mixerHandle);
-                if (status == BASSActive.BASS_ACTIVE_PLAYING) Bass.BASS_ChannelStop(mixerHandle);
+                //Stopping all the file streams
+                for (int i = 0; i < audioFiles.Count; i++)
+                {
+                    if (Bass.BASS_ChannelStop(audioFiles[i].fileHandle) == false)
+                        throw new Exception($"Failed to stop a file stream: {Bass.BASS_ErrorGetCode()}");
+                }
+                //Stopping the main track channel
+                if (Bass.BASS_ChannelStop(mixerHandle) == false)
+                    throw new Exception($"Failed to stop a track mixer: {Bass.BASS_ErrorGetCode()}");
             }
-            catch
+        }
+
+        /// <summary>
+        /// Checks current status of the track mixer
+        /// </summary>
+        /// <returns>Status of the track mixer</returns>
+        BASSActive GetChannelStatus()
+        {
+            return Bass.BASS_ChannelIsActive(mixerHandle);
+        }
+
+        /// <summary>
+        /// Changes volume of a track
+        /// </summary>
+        /// <param name="newVolume">New volume value</param>
+        public void ChangeVolume(int newVolume)
+        {
+            if (newVolume >= 0 && newVolume <= 100)
             {
+                float newVolumeFloat = (float)newVolume * (float)0.01;
+                if (Bass.BASS_ChannelSetAttribute(mixerHandle, BASSAttribute.BASS_ATTRIB_VOL, newVolume) == false)
+                    throw new Exception($"Failed to change track volume: {Bass.BASS_ErrorGetCode()}");
             }
         }
 

@@ -19,6 +19,7 @@ namespace TTRPG_Audio_Manager
             this.path = path;
             this.name = Path.GetFileNameWithoutExtension(path);
         }
+        public int fileHandle;
 
         /// <summary>
         /// Creates a new stream from a file path
@@ -26,7 +27,7 @@ namespace TTRPG_Audio_Manager
         /// <returns>Returns the stream handle</returns>
         public int GetHandle()
         {
-            int fileHandle = Bass.BASS_StreamCreateFile(path, 0, 0, BASSFlag.BASS_SAMPLE_FLOAT | BASSFlag.BASS_STREAM_DECODE);
+            fileHandle = Bass.BASS_StreamCreateFile(path, 0, 0, BASSFlag.BASS_SAMPLE_FLOAT | BASSFlag.BASS_STREAM_DECODE | BASSFlag.BASS_STREAM_AUTOFREE);
             if (fileHandle == 0)
             {
                 throw new Exception($"Stream creation error. Error code: {Bass.BASS_ErrorGetCode()}");

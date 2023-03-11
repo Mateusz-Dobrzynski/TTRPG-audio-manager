@@ -29,7 +29,7 @@ namespace TTRPG_Audio_Manager
         /// </summary
         public void SetStop()
         {
-            if (Bass.BASS_Stop() != true) throw new Exception($"Failed to stop the set: {Bass.BASS_ErrorGetCode()}");
+            if (Bass.BASS_Stop() == false) throw new Exception($"Failed to stop the set: {Bass.BASS_ErrorGetCode()}");
         }
 
         /// <summary>
