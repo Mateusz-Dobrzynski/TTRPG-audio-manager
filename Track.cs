@@ -21,7 +21,7 @@ namespace TTRPG_Audio_Manager
         /// <summary>
         /// If true, files in a track will be played in random order.
         /// </summary>
-        bool shuffle = false;
+        public bool shuffle { get; set; } = false;
 
         public Track(string name)
         {

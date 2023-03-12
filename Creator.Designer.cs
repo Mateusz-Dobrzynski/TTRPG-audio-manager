@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Creator));
             this.NameLabel = new System.Windows.Forms.Label();
             this.textBoxCreator = new System.Windows.Forms.TextBox();
             this.submitCreator = new System.Windows.Forms.Button();
@@ -70,6 +71,7 @@
             this.Controls.Add(this.submitCreator);
             this.Controls.Add(this.textBoxCreator);
             this.Controls.Add(this.NameLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Creator";
             this.Text = "Creator";
             this.ResumeLayout(false);

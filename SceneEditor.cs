@@ -30,14 +30,6 @@ namespace TTRPG_Audio_Manager
             {
                 onLoadContent();
             }
-            //creating button, which adds new track
-            Button btnAddTrack = new Button();
-            btnAddTrack.Text = "Add New Track";
-            btnAddTrack.Height = 50;
-            btnAddTrack.Width = 80;
-            btnAddTrack.BackColor = Color.Gray;
-            btnAddTrack.Click += new EventHandler(newTrackbtn_Click);
-            tblPanel.Controls.Add(btnAddTrack, 1, tblPanel.RowCount - 1);
         }
         //function for creating new track
         private void newTrackbtn_Click(object sender, EventArgs e)
@@ -50,15 +42,6 @@ namespace TTRPG_Audio_Manager
             currentScene.AddTrack(name);
             scenesSet.Save(directory);
             onLoadContent();
-
-            //creating button, which adds new track
-            Button btnAddTrack = new Button();
-            btnAddTrack.Text = "Add New Track";
-            btnAddTrack.Height = 50;
-            btnAddTrack.Width = 80;
-            btnAddTrack.BackColor = Color.Gray;
-            btnAddTrack.Click += new EventHandler(newTrackbtn_Click);
-            tblPanel.Controls.Add(btnAddTrack, 1, tblPanel.RowCount - 1);
 
         }
         //funtion for closing the form
@@ -109,8 +92,24 @@ namespace TTRPG_Audio_Manager
             //volume cannot be lesser than 0 and greater than 100
             if (vol < 0) vol = 0;
             else if(vol > 100) vol = 100;
-            chosenTrack.volume = vol;
+            chosenTrack.ChangeVolume(vol);
             scenesSet.Save(directory); //scene is saved
+        }
+
+        //function for enabling/disabling shuffle
+        private void shuffle_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int count = Convert.ToInt32(btn.Name);
+            Track chosenTrack = currentScene.tracks[count];
+            if(chosenTrack.shuffle == false)
+            {
+                chosenTrack.shuffle = true;
+            }
+            else
+            {
+                chosenTrack.shuffle = false;
+            }
         }
         //function for loading the elements dynamicaly in tableLayoutPanel
         private void onLoadContent()
@@ -185,10 +184,28 @@ namespace TTRPG_Audio_Manager
                 btnStop.Click += new EventHandler(stop_Click);
                 tblPanel.Controls.Add(btnStop, 6, tblPanel.RowCount - 1);
 
+                //creating button used to enable/disable shuffle
+                Button btnShuff = new Button();
+                btnShuff.Text = "Shuffle";
+                btnShuff.Name = Convert.ToString(count);
+                btnShuff.Height = 50;
+                btnShuff.BackColor = Color.LightSkyBlue;
+                btnShuff.Click += new EventHandler(shuffle_Click);
+                tblPanel.Controls.Add(btnShuff, 7, tblPanel.RowCount - 1);
+
                 //added new row and incremented the count variable
                 tblPanel.RowCount += 1;
                 count += 1;
+
             }
+            //creating button, which adds new track
+            Button btnAddTrack = new Button();
+            btnAddTrack.Text = "Add New Track";
+            btnAddTrack.Height = 50;
+            btnAddTrack.Width = 80;
+            btnAddTrack.BackColor = Color.Gray;
+            btnAddTrack.Click += new EventHandler(newTrackbtn_Click);
+            tblPanel.Controls.Add(btnAddTrack, 1, tblPanel.RowCount - 1);
         }
 
         private void playSceneBtn_Click(object sender, EventArgs e)
