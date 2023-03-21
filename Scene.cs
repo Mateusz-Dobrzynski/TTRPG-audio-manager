@@ -39,5 +39,10 @@ namespace TTRPG_Audio_Manager
 			Track track = new Track(name);
 			tracks.Add(track);
 		}
+
+		public void RemoveTrack(int index)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

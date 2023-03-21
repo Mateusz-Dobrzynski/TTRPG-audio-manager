@@ -132,6 +132,11 @@ namespace TTRPG_Audio_Manager
             this.audioFiles.Add(newAudioFile);
         }
 
+        public void RemoveAudioFile(int index)
+        {
+            throw new NotImplementedException();
+        }
+
         public void RemoveAudioFile(string path)
         {
             throw new NotImplementedException();
