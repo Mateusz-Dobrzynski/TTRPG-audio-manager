@@ -34,6 +34,7 @@
             this.directoryBtn = new System.Windows.Forms.Button();
             this.dLabel = new System.Windows.Forms.Label();
             this.directoryPath = new System.Windows.Forms.Label();
+            this.setLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // loadSetFile
@@ -70,11 +71,17 @@
             resources.ApplyResources(this.directoryPath, "directoryPath");
             this.directoryPath.Name = "directoryPath";
             // 
+            // setLayout
+            // 
+            resources.ApplyResources(this.setLayout, "setLayout");
+            this.setLayout.Name = "setLayout";
+            // 
             // Index
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Controls.Add(this.setLayout);
             this.Controls.Add(this.dLabel);
             this.Controls.Add(this.directoryPath);
             this.Controls.Add(this.directoryBtn);
@@ -92,5 +99,6 @@
         private Button directoryBtn;
         private Label dLabel;
         private Label directoryPath;
+        private FlowLayoutPanel setLayout;
     }
 }

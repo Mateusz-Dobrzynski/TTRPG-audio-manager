@@ -25,11 +25,8 @@ namespace TTRPG_Audio_Manager
             instance = this;
             tblPanel.MaximumSize = new Size(810, 480);
             tblPanel.AutoScroll = true;
-            //if chosen scene have any tracks, they will be loaded
-            if (currentScene.tracks.Count > 0)
-            {
-                onLoadContent();
-            }
+            //loading content
+            onLoadContent();
         }
         //function for creating new track
         private void newTrackbtn_Click(object sender, EventArgs e)
