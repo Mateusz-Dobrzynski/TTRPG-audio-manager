@@ -8,11 +8,14 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace TTRPG_Audio_Manager
 {
+
     public partial class Creator : Form
     {
+
         //Creating an instance so other windows can access certain objects in this window
         public static Creator instance;
         public TextBox txtBox;

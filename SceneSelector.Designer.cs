@@ -37,7 +37,11 @@
             // 
             // ReturnButton
             // 
-            this.ReturnButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.ReturnButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+            this.ReturnButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+            this.ReturnButton.FlatAppearance.BorderSize = 2;
+            this.ReturnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReturnButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
             this.ReturnButton.Location = new System.Drawing.Point(12, 399);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(141, 39);
@@ -48,8 +52,12 @@
             // 
             // AddSceneBtn
             // 
-            this.AddSceneBtn.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.AddSceneBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
             this.AddSceneBtn.CausesValidation = false;
+            this.AddSceneBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+            this.AddSceneBtn.FlatAppearance.BorderSize = 2;
+            this.AddSceneBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddSceneBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
             this.AddSceneBtn.Location = new System.Drawing.Point(665, 15);
             this.AddSceneBtn.Name = "AddSceneBtn";
             this.AddSceneBtn.Size = new System.Drawing.Size(125, 35);
@@ -60,7 +68,9 @@
             // 
             // sceneBox
             // 
-            this.sceneBox.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.sceneBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+            this.sceneBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sceneBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
             this.sceneBox.FormattingEnabled = true;
             this.sceneBox.Location = new System.Drawing.Point(280, 130);
             this.sceneBox.Name = "sceneBox";
@@ -69,6 +79,11 @@
             // 
             // openSceneBtn
             // 
+            this.openSceneBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+            this.openSceneBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+            this.openSceneBtn.FlatAppearance.BorderSize = 2;
+            this.openSceneBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openSceneBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
             this.openSceneBtn.Location = new System.Drawing.Point(325, 175);
             this.openSceneBtn.Name = "openSceneBtn";
             this.openSceneBtn.Size = new System.Drawing.Size(125, 35);
@@ -81,12 +96,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.openSceneBtn);
             this.Controls.Add(this.sceneBox);
             this.Controls.Add(this.AddSceneBtn);
             this.Controls.Add(this.ReturnButton);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SceneSelector";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

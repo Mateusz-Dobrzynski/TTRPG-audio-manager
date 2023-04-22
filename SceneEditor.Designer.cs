@@ -36,6 +36,8 @@
             // 
             // tblPanel
             // 
+            this.tblPanel.BackgroundImage = global::TTRPG_Audio_Manager.Properties.Resources.graphic1;
+            this.tblPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tblPanel.ColumnCount = 8;
             this.tblPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.tblPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -55,7 +57,11 @@
             // 
             // btnEnd
             // 
-            this.btnEnd.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnEnd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+            this.btnEnd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+            this.btnEnd.FlatAppearance.BorderSize = 2;
+            this.btnEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
             this.btnEnd.Location = new System.Drawing.Point(38, 394);
             this.btnEnd.Name = "btnEnd";
             this.btnEnd.Size = new System.Drawing.Size(97, 35);
@@ -66,7 +72,11 @@
             // 
             // playSceneBtn
             // 
-            this.playSceneBtn.BackColor = System.Drawing.Color.LimeGreen;
+            this.playSceneBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+            this.playSceneBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+            this.playSceneBtn.FlatAppearance.BorderSize = 2;
+            this.playSceneBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.playSceneBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
             this.playSceneBtn.Location = new System.Drawing.Point(156, 394);
             this.playSceneBtn.Name = "playSceneBtn";
             this.playSceneBtn.Size = new System.Drawing.Size(97, 35);
@@ -79,11 +89,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(794, 441);
             this.Controls.Add(this.playSceneBtn);
             this.Controls.Add(this.btnEnd);
             this.Controls.Add(this.tblPanel);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SceneEditor";
             this.Text = "TTRPG Audio Manager: Scene Editor";

@@ -107,6 +107,17 @@ namespace TTRPG_Audio_Manager
             {
                 chosenTrack.shuffle = false;
             }
+            //changing color
+            if (btn.ForeColor == System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222))))))
+            {
+                btn.ForeColor = System.Drawing.Color.Green;
+                btn.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+                btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+            }
         }
         //function for loading the elements dynamicaly in tableLayoutPanel
         private void onLoadContent()
@@ -124,6 +135,7 @@ namespace TTRPG_Audio_Manager
                 label.Name = Convert.ToString(count);
                 label.Height = 50;
                 label.TextAlign = ContentAlignment.MiddleCenter;
+                label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
                 tblPanel.Controls.Add(label, 0, tblPanel.RowCount - 1);
 
                 //creating button used to add new audio to the track
@@ -132,7 +144,11 @@ namespace TTRPG_Audio_Manager
                 btnAdd.Name = Convert.ToString(count);
                 btnAdd.Height = 50;
                 btnAdd.Width = 80;
-                btnAdd.BackColor = Color.MediumSeaGreen;
+                btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+                btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+                btnAdd.FlatAppearance.BorderSize = 2;
+                btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
                 EventArgs e = new EventArgs();
                 btnAdd.Click += new EventHandler(addAudio_Click);
                 tblPanel.Controls.Add(btnAdd, 1, tblPanel.RowCount - 1);
@@ -141,6 +157,9 @@ namespace TTRPG_Audio_Manager
                 ComboBox songList = new ComboBox();
                 songList.Width = 200;
                 songList.Name = Convert.ToString(count);
+                songList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                songList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+                songList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
                 foreach (var song in track.audioFiles)
                 {
                     songList.Items.Add(song.name);
@@ -151,8 +170,9 @@ namespace TTRPG_Audio_Manager
                 Label volumeText = new Label();
                 volumeText.Text = "Volume";
                 volumeText.Name = Convert.ToString(count);
-                volumeText.Height = 50;
+                volumeText.Height = 20;
                 volumeText.TextAlign = ContentAlignment.TopCenter;
+                volumeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
                 tblPanel.Controls.Add(volumeText, 3, tblPanel.RowCount - 1);
 
                 //creating volume picker used to change volume of the track
@@ -160,6 +180,8 @@ namespace TTRPG_Audio_Manager
                 volumePicker.Width = 100;
                 volumePicker.Name = Convert.ToString(count);
                 volumePicker.Value = currentScene.tracks[count].volume;
+                volumePicker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+                volumePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
                 volumePicker.ValueChanged += new EventHandler(volumeChange_Modified);
                 tblPanel.Controls.Add(volumePicker, 4, tblPanel.RowCount - 1);
 
@@ -168,7 +190,11 @@ namespace TTRPG_Audio_Manager
                 btnPlay.Text = "Play";
                 btnPlay.Name = Convert.ToString(count);
                 btnPlay.Height = 50;
-                btnPlay.BackColor = Color.MediumSpringGreen;
+                btnPlay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+                btnPlay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+                btnPlay.FlatAppearance.BorderSize = 2;
+                btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                btnPlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
                 btnPlay.Click += new EventHandler(play_Click);
                 tblPanel.Controls.Add(btnPlay, 5, tblPanel.RowCount - 1);
 
@@ -177,7 +203,11 @@ namespace TTRPG_Audio_Manager
                 btnStop.Text = "Stop";
                 btnStop.Name = Convert.ToString(count);
                 btnStop.Height = 50;
-                btnStop.BackColor = Color.PaleVioletRed;
+                btnStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+                btnStop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+                btnStop.FlatAppearance.BorderSize = 2;
+                btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                btnStop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
                 btnStop.Click += new EventHandler(stop_Click);
                 tblPanel.Controls.Add(btnStop, 6, tblPanel.RowCount - 1);
 
@@ -186,7 +216,11 @@ namespace TTRPG_Audio_Manager
                 btnShuff.Text = "Shuffle";
                 btnShuff.Name = Convert.ToString(count);
                 btnShuff.Height = 50;
-                btnShuff.BackColor = Color.LightSkyBlue;
+                btnShuff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+                btnShuff.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+                btnShuff.FlatAppearance.BorderSize = 2;
+                btnShuff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                btnShuff.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
                 btnShuff.Click += new EventHandler(shuffle_Click);
                 tblPanel.Controls.Add(btnShuff, 7, tblPanel.RowCount - 1);
 
@@ -200,7 +234,11 @@ namespace TTRPG_Audio_Manager
             btnAddTrack.Text = "Add New Track";
             btnAddTrack.Height = 50;
             btnAddTrack.Width = 80;
-            btnAddTrack.BackColor = Color.Gray;
+            btnAddTrack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+            btnAddTrack.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+            btnAddTrack.FlatAppearance.BorderSize = 2;
+            btnAddTrack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnAddTrack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
             btnAddTrack.Click += new EventHandler(newTrackbtn_Click);
             tblPanel.Controls.Add(btnAddTrack, 1, tblPanel.RowCount - 1);
         }

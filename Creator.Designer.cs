@@ -1,7 +1,15 @@
-﻿namespace TTRPG_Audio_Manager
+﻿using System;
+using System.Drawing;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+
+
+
+namespace TTRPG_Audio_Manager
 {
     partial class Creator
     {
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -38,6 +46,7 @@
             // 
             this.NameLabel.AutoSize = true;
             this.NameLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
             this.NameLabel.Location = new System.Drawing.Point(153, 25);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(66, 25);
@@ -46,6 +55,9 @@
             // 
             // textBoxCreator
             // 
+            this.textBoxCreator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+            this.textBoxCreator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxCreator.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
             this.textBoxCreator.Location = new System.Drawing.Point(100, 65);
             this.textBoxCreator.Name = "textBoxCreator";
             this.textBoxCreator.Size = new System.Drawing.Size(175, 23);
@@ -53,7 +65,11 @@
             // 
             // submitCreator
             // 
-            this.submitCreator.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.submitCreator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+            this.submitCreator.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+            this.submitCreator.FlatAppearance.BorderSize = 2;
+            this.submitCreator.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.submitCreator.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
             this.submitCreator.Location = new System.Drawing.Point(144, 112);
             this.submitCreator.Name = "submitCreator";
             this.submitCreator.Size = new System.Drawing.Size(75, 25);
@@ -66,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(376, 178);
             this.Controls.Add(this.submitCreator);
             this.Controls.Add(this.textBoxCreator);

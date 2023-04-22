@@ -11,12 +11,14 @@ namespace TTRPG_Audio_Manager
         string FBDPath;
         int count = 0;
         List<ScenesSet> setsList = new List<ScenesSet>();
+
         public Index()
         {
             InitializeComponent();
             //assigning objects to instance
             instance = this;
             dPath = directoryPath;
+            dPath.ForeColor = System.Drawing.Color.FromArgb(184, 47, 222);
 
             //onLoadContent();
         }
@@ -38,6 +40,11 @@ namespace TTRPG_Audio_Manager
                 newSet.UseVisualStyleBackColor = true;
                 newSet.Width = 150;
                 newSet.Height = 50;
+                newSet.BackColor = System.Drawing.Color.FromArgb(23, 21, 23);
+                newSet.ForeColor = System.Drawing.Color.FromArgb(184, 47, 222);
+                newSet.FlatStyle = FlatStyle.Flat;
+                newSet.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(184, 47, 222);
+                newSet.FlatAppearance.BorderSize = 2;
                 newSet.Name = Convert.ToString(count);
                 newSet.Click += new EventHandler(OpenSet_Click);
                 count += 1;
@@ -61,20 +68,32 @@ namespace TTRPG_Audio_Manager
             Creator creator = new Creator();
             creator.ShowDialog();
             ScenesSet scenesSet = new ScenesSet();
-            scenesSet.name = Creator.instance.txtBox.Text;
-            scenesSet.Save(FBDPath);
-            setsList.Add(scenesSet);
+            if(Creator.instance.txtBox.Text != "" && FBDPath != null)
+            {
+                scenesSet.name = Creator.instance.txtBox.Text;
+                scenesSet.Save(FBDPath);
+                setsList.Add(scenesSet);
 
-            //creating button and assigning an event to it to open scene selector for currentSet
-            Button newSet = new Button();
-            setLayout.Controls.Add(newSet);
-            newSet.Text = scenesSet.name;
-            newSet.UseVisualStyleBackColor = true;
-            newSet.Width = 150;
-            newSet.Height = 50;
-            newSet.Name = Convert.ToString(count);
-            newSet.Click += new EventHandler(OpenSet_Click);
-            count += 1;
+                //creating button and assigning an event to it to open scene selector for currentSet
+                Button newSet = new Button();
+                setLayout.Controls.Add(newSet);
+                newSet.Text = scenesSet.name;
+                newSet.UseVisualStyleBackColor = true;
+                newSet.BackColor = System.Drawing.Color.FromArgb(23, 21, 23);
+                newSet.ForeColor = System.Drawing.Color.FromArgb(184, 47, 222);
+                newSet.FlatStyle = FlatStyle.Flat;
+                newSet.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(184, 47, 222);
+                newSet.FlatAppearance.BorderSize = 2;
+                newSet.Width = 150;
+                newSet.Height = 50;
+                newSet.Name = Convert.ToString(count);
+                newSet.Click += new EventHandler(OpenSet_Click);
+                count += 1;
+            }
+            if(FBDPath == null)
+            {
+                dPath.Text = "Please choose the directory first";
+            }
         }
         //Chooses base directory in which sets will be saved
         private void directoryBtn_Click(object sender, EventArgs e)
@@ -98,6 +117,11 @@ namespace TTRPG_Audio_Manager
                  setBtn.Height = 50;
                  setBtn.Width = 150;
                  setBtn.Name = Convert.ToString(count);
+                 newSet.BackColor = System.Drawing.Color.FromArgb(23, 21, 23);
+                 newSet.ForeColor = System.Drawing.Color.FromArgb(184, 47, 222);
+                 newSet.FlatStyle = FlatStyle.Flat;
+                 newSet.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(184, 47, 222);
+                 newSet.FlatAppearance.BorderSize = 2;
                  EventArgs e = new EventArgs();
                  setBtn.Click += new EventHandler(OpenSet_Click);
                  setLayout.Controls.Add(setBtn);
