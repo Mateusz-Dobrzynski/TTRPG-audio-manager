@@ -63,9 +63,9 @@ namespace TTRPG_Audio_Manager.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap graphic {
+        internal static System.Drawing.Bitmap graphic1 {
             get {
-                object obj = ResourceManager.GetObject("graphic", resourceCulture);
+                object obj = ResourceManager.GetObject("graphic1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,29 @@ namespace TTRPG_Audio_Manager.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap graphic1 {
+        internal static System.Drawing.Bitmap panel {
             get {
-                object obj = ResourceManager.GetObject("graphic1", resourceCulture);
+                object obj = ResourceManager.GetObject("panel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap playSign {
+            get {
+                object obj = ResourceManager.GetObject("playSign", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stopSign {
+            get {
+                object obj = ResourceManager.GetObject("stopSign", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

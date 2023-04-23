@@ -66,7 +66,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="loadSetFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>525, 15</value>
+    <value>525, 62</value>
   </data>
   <data name="loadSetFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>134, 37</value>
@@ -88,7 +88,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;loadSetFile.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="createNewSet.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -97,7 +97,7 @@
     <value>NoControl</value>
   </data>
   <data name="createNewSet.Location" type="System.Drawing.Point, System.Drawing">
-    <value>665, 15</value>
+    <value>667, 62</value>
   </data>
   <data name="createNewSet.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 37</value>
@@ -118,7 +118,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;createNewSet.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="directoryBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -127,7 +127,7 @@
     <value>NoControl</value>
   </data>
   <data name="directoryBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>344, 15</value>
+    <value>344, 62</value>
   </data>
   <data name="directoryBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 37</value>
@@ -148,13 +148,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;directoryBtn.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="dLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="dLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 20</value>
+    <value>12, 73</value>
   </data>
   <data name="dLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 15</value>
@@ -175,7 +175,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="directoryPath.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -184,7 +184,7 @@
     <value>NoControl</value>
   </data>
   <data name="directoryPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 20</value>
+    <value>93, 73</value>
   </data>
   <data name="directoryPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 15</value>
@@ -202,16 +202,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;directoryPath.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="setLayout.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
   <data name="setLayout.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 58</value>
+    <value>12, 118</value>
   </data>
   <data name="setLayout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>778, 381</value>
+    <value>778, 451</value>
   </data>
   <data name="setLayout.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -226,6 +226,90 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;setLayout.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="minBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="minBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Black, 9.75pt, style=Bold</value>
+  </data>
+  <data name="minBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="minBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>753, 11</value>
+  </data>
+  <data name="minBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="minBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="minBtn.Text" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="&gt;&gt;minBtn.Name" xml:space="preserve">
+    <value>minBtn</value>
+  </data>
+  <data name="&gt;&gt;minBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;minBtn.Parent" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="&gt;&gt;minBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="exitBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="exitBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="exitBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>770, 11</value>
+  </data>
+  <data name="exitBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="exitBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="exitBtn.Text" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="&gt;&gt;exitBtn.Name" xml:space="preserve">
+    <value>exitBtn</value>
+  </data>
+  <data name="&gt;&gt;exitBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exitBtn.Parent" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="&gt;&gt;exitBtn.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-2, -1</value>
+  </data>
+  <data name="panel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>810, 44</value>
+  </data>
+  <data name="panel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;panel.Name" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="&gt;&gt;panel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -235,7 +319,7 @@
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>804, 451</value>
+    <value>804, 581</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

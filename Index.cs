@@ -1,9 +1,16 @@
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 
 namespace TTRPG_Audio_Manager
 {
     public partial class Index : Form
     {
+        //allowing to drag and drop the window
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
         //Creating an instance so other windows can access certain objects in this window
         public static Index instance;
         public Label dPath;
@@ -19,6 +26,7 @@ namespace TTRPG_Audio_Manager
             instance = this;
             dPath = directoryPath;
             dPath.ForeColor = System.Drawing.Color.FromArgb(184, 47, 222);
+
 
             //onLoadContent();
         }
@@ -127,6 +135,22 @@ namespace TTRPG_Audio_Manager
                  setLayout.Controls.Add(setBtn);
                  count += 1;
              }*/
+        }
+
+        private void minBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.ExitThread();
+        }
+
+        private void panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

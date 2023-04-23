@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,11 @@ namespace TTRPG_Audio_Manager
 {
     public partial class SceneEditor : Form
     {
+        //allowing to drag and drop the window
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         //creating instance
         public static SceneEditor instance;
         //assigning local variables using SceneSelector instance
@@ -25,6 +31,7 @@ namespace TTRPG_Audio_Manager
             instance = this;
             tblPanel.MaximumSize = new Size(810, 480);
             tblPanel.AutoScroll = true;
+            sceneNameLabel.Text = currentScene.name;
             //loading content
             onLoadContent();
         }
@@ -53,6 +60,9 @@ namespace TTRPG_Audio_Manager
             int count = Convert.ToInt32(btn.Name);
             Track chosenTrack = currentScene.tracks[count];
             chosenTrack.Play();
+            btn.BackgroundImage = global::TTRPG_Audio_Manager.Properties.Resources.stopSign;
+            btn.Click += new EventHandler(stop_Click);
+            btn.Click -= new EventHandler(play_Click);
         }
         //function for stoping chosen track
         private void stop_Click(object sender, EventArgs e)
@@ -61,6 +71,9 @@ namespace TTRPG_Audio_Manager
             int count = Convert.ToInt32(btn.Name);
             Track chosenTrack = currentScene.tracks[count];
             chosenTrack.Stop();
+            btn.BackgroundImage = global::TTRPG_Audio_Manager.Properties.Resources.playSign;
+            btn.Click -= new EventHandler(stop_Click);
+            btn.Click += new EventHandler(play_Click);
         }
         //function for adding new audio to chosen track
         private void addAudio_Click(object sender, EventArgs e)
@@ -155,7 +168,7 @@ namespace TTRPG_Audio_Manager
 
                 //creating new combobox to show audio files in the track. Later may be added function to start playing from chosen audio file
                 ComboBox songList = new ComboBox();
-                songList.Width = 200;
+                songList.Width = 300;
                 songList.Name = Convert.ToString(count);
                 songList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                 songList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
@@ -186,30 +199,20 @@ namespace TTRPG_Audio_Manager
                 tblPanel.Controls.Add(volumePicker, 4, tblPanel.RowCount - 1);
 
                 //creating button used to play the track
-                Button btnPlay = new Button();
-                btnPlay.Text = "Play";
-                btnPlay.Name = Convert.ToString(count);
-                btnPlay.Height = 50;
-                btnPlay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
-                btnPlay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
-                btnPlay.FlatAppearance.BorderSize = 2;
-                btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                btnPlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
-                btnPlay.Click += new EventHandler(play_Click);
-                tblPanel.Controls.Add(btnPlay, 5, tblPanel.RowCount - 1);
-
-                //creating button used to stop the track
-                Button btnStop = new Button();
-                btnStop.Text = "Stop";
-                btnStop.Name = Convert.ToString(count);
-                btnStop.Height = 50;
-                btnStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
-                btnStop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
-                btnStop.FlatAppearance.BorderSize = 2;
-                btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                btnStop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
-                btnStop.Click += new EventHandler(stop_Click);
-                tblPanel.Controls.Add(btnStop, 6, tblPanel.RowCount - 1);
+                Button btnPlayStop = new Button();
+                btnPlayStop.Name = Convert.ToString(count);
+                btnPlayStop.Height = 50;
+                btnPlayStop.Width = 50;
+                btnPlayStop.BackgroundImage = global::TTRPG_Audio_Manager.Properties.Resources.playSign;
+                btnPlayStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+                btnPlayStop.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                btnPlayStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+                btnPlayStop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+                btnPlayStop.FlatAppearance.BorderSize = 2;
+                btnPlayStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                btnPlayStop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+                btnPlayStop.Click += new EventHandler(play_Click);
+                tblPanel.Controls.Add(btnPlayStop, 5, tblPanel.RowCount - 1);
 
                 //creating button used to enable/disable shuffle
                 Button btnShuff = new Button();
@@ -222,7 +225,7 @@ namespace TTRPG_Audio_Manager
                 btnShuff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                 btnShuff.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
                 btnShuff.Click += new EventHandler(shuffle_Click);
-                tblPanel.Controls.Add(btnShuff, 7, tblPanel.RowCount - 1);
+                tblPanel.Controls.Add(btnShuff, 6, tblPanel.RowCount - 1);
 
                 //added new row and incremented the count variable
                 tblPanel.RowCount += 1;
@@ -245,7 +248,36 @@ namespace TTRPG_Audio_Manager
 
         private void playSceneBtn_Click(object sender, EventArgs e)
         {
-            currentScene.Play();
+            Button playScene = (Button)sender;
+            if(playScene.Text == "Play Scene")
+            {
+                currentScene.Play();
+                playScene.Text = "Stop Scene";
+                playScene.ForeColor = System.Drawing.Color.DarkRed;
+                playScene.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            }
+            else
+            {
+                currentScene.Stop();
+                playScene.Text = "Play Scene";
+                playScene.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+                playScene.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+            }
+        }
+        private void minBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

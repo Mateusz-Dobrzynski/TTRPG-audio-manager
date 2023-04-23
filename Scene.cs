@@ -28,8 +28,8 @@ namespace TTRPG_Audio_Manager
 
 		public void Stop()
 		{
-			throw new NotImplementedException();
-		}
+            foreach (Track track in tracks) track.Stop();
+        }
 
 		/// <summary>
 		/// Creates a new audio track and appends it to the tracks list
