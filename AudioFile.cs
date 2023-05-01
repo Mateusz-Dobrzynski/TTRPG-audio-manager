@@ -14,10 +14,11 @@ namespace TTRPG_Audio_Manager
         public string name { get; set; }
         public int volume { get; set; } = 100;
         public string path { get; set; }
-        public AudioFile(string path)
+        public AudioFile(Track parentTrack, string path)
         {
             this.path = path;
             this.name = Path.GetFileNameWithoutExtension(path);
+            this.parentTrack = parentTrack;
         }
         public int fileHandle;
 
@@ -46,6 +47,13 @@ namespace TTRPG_Audio_Manager
             {
                 throw new Exception($"Failed to add channel to the mix stream: {Bass.BASS_ErrorGetCode()}");
             }
+        }
+        /// <summary>
+        /// Removes the AudioFile from the parent Track
+        /// </summary>
+        public void RemoveSelf()
+        {
+            parentTrack.RemoveAudioFile(this);
         }
     }
 }

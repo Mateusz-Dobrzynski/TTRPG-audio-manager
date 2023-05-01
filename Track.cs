@@ -22,12 +22,15 @@ namespace TTRPG_Audio_Manager
         /// If true, files in a track will be played in random order.
         /// </summary>
         public bool shuffle { get; set; } = false;
+        public Scene parentScene;
 
         public Track(string name)
+        public Track(Scene parentScene, string name)
         {
             this.name = name;
 			mixerHandle = BassMix.BASS_Mixer_StreamCreate(44100, 2, BASSFlag.BASS_SAMPLE_FLOAT | BASSFlag.BASS_MIXER_QUEUE);
             if (mixerHandle == 0) throw new Exception($"Failed to create a track mixer: {Bass.BASS_ErrorGetCode()}"); 
+            this.parentScene = parentScene;
         }
 
         /// <summary>
@@ -100,6 +103,14 @@ namespace TTRPG_Audio_Manager
         }
 
         /// <summary>
+        /// Removes the track from the parent scene
+        /// </summary>
+        public void RemoveSelf()
+        {
+            parentScene.RemoveTrack(this);
+        }
+
+        /// <summary>
         /// Checks current status of the track mixer
         /// </summary>
         /// <returns>Status of the track mixer</returns>
@@ -128,18 +139,13 @@ namespace TTRPG_Audio_Manager
         /// <param name="path">Path of the audio file</param>
         public void AddAudioFile(string path)
         {
-            AudioFile newAudioFile = new AudioFile(path);
+            AudioFile newAudioFile = new AudioFile(this, path);
             this.audioFiles.Add(newAudioFile);
         }
 
-        public void RemoveAudioFile(int index)
+        public void RemoveAudioFile(AudioFile audioFile)
         {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveAudioFile(string path)
-        {
-            throw new NotImplementedException();
+            audioFiles.Remove(audioFile);
         }
 
         /// <summary>
