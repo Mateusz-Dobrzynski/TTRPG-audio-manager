@@ -24,7 +24,7 @@ namespace TTRPG_Audio_Manager
         public bool shuffle { get; set; } = false;
         public Scene parentScene;
 
-        public Track(string name)
+        //public Track(string name) { }
         public Track(Scene parentScene, string name)
         {
             this.name = name;
