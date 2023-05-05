@@ -36,6 +36,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.minBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
+            this.deleteScene = new System.Windows.Forms.Button();
+            this.notSoSureButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -140,12 +142,45 @@
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
+            // deleteScene
+            // 
+            this.deleteScene.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+            this.deleteScene.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+            this.deleteScene.FlatAppearance.BorderSize = 2;
+            this.deleteScene.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteScene.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+            this.deleteScene.Location = new System.Drawing.Point(327, 270);
+            this.deleteScene.Name = "deleteScene";
+            this.deleteScene.Size = new System.Drawing.Size(125, 35);
+            this.deleteScene.TabIndex = 6;
+            this.deleteScene.Text = "Delete Scene";
+            this.deleteScene.UseVisualStyleBackColor = true;
+            this.deleteScene.Click += new System.EventHandler(this.deleteScene_Click);
+            // 
+            // notSoSureButton
+            // 
+            this.notSoSureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+            this.notSoSureButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+            this.notSoSureButton.FlatAppearance.BorderSize = 2;
+            this.notSoSureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.notSoSureButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+            this.notSoSureButton.Location = new System.Drawing.Point(458, 270);
+            this.notSoSureButton.Name = "notSoSureButton";
+            this.notSoSureButton.Size = new System.Drawing.Size(36, 35);
+            this.notSoSureButton.TabIndex = 7;
+            this.notSoSureButton.Text = "X";
+            this.notSoSureButton.UseVisualStyleBackColor = true;
+            this.notSoSureButton.Visible = false;
+            this.notSoSureButton.Click += new System.EventHandler(this.notSoSureButton_Click);
+            // 
             // SceneSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(22)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(800, 490);
+            this.Controls.Add(this.notSoSureButton);
+            this.Controls.Add(this.deleteScene);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.openSceneBtn);
             this.Controls.Add(this.sceneBox);
@@ -170,5 +205,7 @@
         private Panel panel1;
         private Button exitBtn;
         private Button minBtn;
+        private Button deleteScene;
+        private Button notSoSureButton;
     }
 }

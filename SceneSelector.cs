@@ -20,7 +20,7 @@ namespace TTRPG_Audio_Manager
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         //creating instances
         public static SceneSelector instance;
-        public Scene chosenScene;
+        public Scene chosenScene; 
         //assigning local variables using Index instance
         public string directory = Index.instance.dPath.Text;
         public ScenesSet currentSet = Index.instance.currentSet;
@@ -80,6 +80,50 @@ namespace TTRPG_Audio_Manager
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void deleteScene_Click(object sender, EventArgs e)
+        {
+            Button deleteText = (Button)sender;
+            string name = sceneBox.Text;
+            foreach (Scene x in currentSet.scenes.ToList())
+            {
+                if (x.name == name)
+                {
+                    chosenScene = x;
+                    chosenScene.parentSet = currentSet;
+                    if (deleteText.Text == "Delete Scene")
+                    {
+                        deleteScene.ForeColor = System.Drawing.Color.DarkRed;
+                        deleteScene.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+                        deleteScene.Text = "Are you sure?";
+                        notSoSureButton.Visible = true;
+                    }
+                    else
+                    {
+                        chosenScene.RemoveSelf();
+                        sceneBox.Items.Clear();
+                        sceneBox.Text = "";
+                        foreach (Scene y in currentSet.scenes)
+                        {
+                            sceneBox.Items.Add(y.name);
+                        }
+                        currentSet.Save(directory);
+                        deleteScene.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+                        deleteScene.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+                        deleteScene.Text = "Delete Scene";
+                        notSoSureButton.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void notSoSureButton_Click(object sender, EventArgs e)
+        {
+            deleteScene.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+            deleteScene.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+            deleteScene.Text = "Delete Scene";
+            notSoSureButton.Visible = false;
         }
     }
 }
