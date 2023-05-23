@@ -132,6 +132,17 @@ namespace TTRPG_Audio_Manager
                 btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
             }
         }
+
+        private void del_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int count = Convert.ToInt32(btn.Name);
+            Track chosenTrack = currentScene.tracks[count];
+            chosenTrack.parentScene = currentScene;
+            chosenTrack.RemoveSelf();
+            scenesSet.Save(directory);
+            onLoadContent();
+        }
         //function for loading the elements dynamicaly in tableLayoutPanel
         private void onLoadContent()
         {
@@ -226,6 +237,21 @@ namespace TTRPG_Audio_Manager
                 btnShuff.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
                 btnShuff.Click += new EventHandler(shuffle_Click);
                 tblPanel.Controls.Add(btnShuff, 6, tblPanel.RowCount - 1);
+
+                //creating button used to deleting whole tracks
+                Button btnDelete = new Button();
+                btnDelete.Name = Convert.ToString(count);
+                btnDelete.Height = 50;
+                btnDelete.Width = 50;
+                btnDelete.Text = "X";
+                btnDelete.TextAlign = ContentAlignment.MiddleCenter;
+                btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+                btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+                btnDelete.FlatAppearance.BorderSize = 2;
+                btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                btnDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(47)))), ((int)(((byte)(222)))));
+                btnDelete.Click += new EventHandler(del_Click);
+                tblPanel.Controls.Add(btnDelete, 7, tblPanel.RowCount - 1);
 
                 //added new row and incremented the count variable
                 tblPanel.RowCount += 1;
