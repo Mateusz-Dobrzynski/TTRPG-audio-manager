@@ -22,7 +22,9 @@ namespace TTRPG_Audio_Manager
         /// If true, files in a track will be played in random order.
         /// </summary>
         public bool shuffle { get; set; } = false;
+        public Scene parentScene;
 
+        //public Track(string name) { }
         public Track(string name)
         {
             this.name = name;
@@ -117,7 +119,7 @@ namespace TTRPG_Audio_Manager
             if (newVolume >= 0 && newVolume <= 100)
             {
                 float newVolumeFloat = (float)newVolume * (float)0.01;
-                if (Bass.BASS_ChannelSetAttribute(mixerHandle, BASSAttribute.BASS_ATTRIB_VOL, newVolume) == false)
+                if (Bass.BASS_ChannelSetAttribute(mixerHandle, BASSAttribute.BASS_ATTRIB_VOL, newVolumeFloat) == false)
                     throw new Exception($"Failed to change track volume: {Bass.BASS_ErrorGetCode()}");
             }
         }
@@ -129,17 +131,7 @@ namespace TTRPG_Audio_Manager
         public void AddAudioFile(string path)
         {
             AudioFile newAudioFile = new AudioFile(path);
-            this.audioFiles.Add(newAudioFile);
-        }
-
-        public void RemoveAudioFile(int index)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveAudioFile(string path)
-        {
-            throw new NotImplementedException();
+            audioFiles.Add(newAudioFile);
         }
 
         /// <summary>

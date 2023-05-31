@@ -13,11 +13,6 @@ namespace TTRPG_Audio_Manager
 		public List<Track> tracks = new List<Track>();
 		public int handle;
 
-		public Scene(string name = "New Scene")
-		{
-			this.name = name;
-		}
-
         /// <summary>
         /// Simultaneously plays all the tracks within the scene
         /// </summary>
@@ -28,8 +23,8 @@ namespace TTRPG_Audio_Manager
 
 		public void Stop()
 		{
-			throw new NotImplementedException();
-		}
+            foreach (Track track in tracks) track.Stop();
+        }
 
 		/// <summary>
 		/// Creates a new audio track and appends it to the tracks list
@@ -40,9 +35,16 @@ namespace TTRPG_Audio_Manager
 			tracks.Add(track);
 		}
 
-		public void RemoveTrack(int index)
+        /// <summary>
+        /// Removes a track from tracks list.
+        /// This method is always called by one of the tracks
+        /// included in the scene
+        /// </summary>
+        /// <param name="track">Parameter provided by the <see cref="Track.Remove"/> method</param>
+        /// <seealso cref="Track.Remove"/>
+		public void RemoveTrack(Track track)
 		{
-			throw new NotImplementedException();
+			tracks.Remove(track);
 		}
 	}
 }
