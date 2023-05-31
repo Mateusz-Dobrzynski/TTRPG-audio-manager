@@ -134,11 +134,6 @@ namespace TTRPG_Audio_Manager
             audioFiles.Add(newAudioFile);
         }
 
-        public void RemoveAudioFile(AudioFile audioFile)
-        {
-            audioFiles.Remove(audioFile);
-        }
-
         /// <summary>
         /// Finds the greatest common divisor (GCD) of a and b using the Euclidean algorithm.
         /// </summary>

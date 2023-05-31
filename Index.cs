@@ -116,25 +116,6 @@ namespace TTRPG_Audio_Manager
         private void onLoadContent()
         {
             setLayout.Controls.Clear();
-
-            /* foreach(var set in configFile)
-             {
-                 Button setBtn = new Button();
-                 setBtn.Text = set.name;
-                 setBtn.UseVisualStyleBackColor = true;
-                 setBtn.Height = 50;
-                 setBtn.Width = 150;
-                 setBtn.Name = Convert.ToString(count);
-                 newSet.BackColor = System.Drawing.Color.FromArgb(23, 21, 23);
-                 newSet.ForeColor = System.Drawing.Color.FromArgb(184, 47, 222);
-                 newSet.FlatStyle = FlatStyle.Flat;
-                 newSet.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(184, 47, 222);
-                 newSet.FlatAppearance.BorderSize = 2;
-                 EventArgs e = new EventArgs();
-                 setBtn.Click += new EventHandler(OpenSet_Click);
-                 setLayout.Controls.Add(setBtn);
-                 count += 1;
-             }*/
         }
 
         private void minBtn_Click(object sender, EventArgs e)
