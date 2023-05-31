@@ -138,8 +138,7 @@ namespace TTRPG_Audio_Manager
             Button btn = (Button)sender;
             int count = Convert.ToInt32(btn.Name);
             Track chosenTrack = currentScene.tracks[count];
-            chosenTrack.parentScene = currentScene;
-            chosenTrack.RemoveSelf();
+            currentScene.RemoveTrack(chosenTrack);
             scenesSet.Save(directory);
             onLoadContent();
         }

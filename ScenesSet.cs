@@ -37,7 +37,7 @@ namespace TTRPG_Audio_Manager
         /// </summary>
         public void AddScene(string? name)
         {
-            Scene scene = new Scene(this);
+            Scene scene = new Scene();
             if (name != null)
             { 
             scene.name = name;
@@ -50,8 +50,7 @@ namespace TTRPG_Audio_Manager
         /// This method is always called by one of the scenes
         /// included in the set
         /// </summary>
-        /// <param name="scene">Parameter provided by the <see cref="Scene.Remove"/> method</param>
-        /// <seealso cref="Scene.Remove"/>
+        /// <param name="scene">Scene to be deleted</param>
         public void RemoveScene(Scene scene)
         {
             scenes.Remove(scene);

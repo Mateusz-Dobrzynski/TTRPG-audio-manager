@@ -12,13 +12,6 @@ namespace TTRPG_Audio_Manager
 		public int volume { get; set; } = 100;
 		public List<Track> tracks = new List<Track>();
 		public int handle;
-		public ScenesSet parentSet;
-
-		public Scene(ScenesSet parentSet, string name = "New Scene")
-		{
-			this.parentSet = parentSet;
-			this.name = name;
-		}
 
         /// <summary>
         /// Simultaneously plays all the tracks within the scene
@@ -34,19 +27,11 @@ namespace TTRPG_Audio_Manager
         }
 
 		/// <summary>
-		/// Removes the scene from the parent scene set
-		/// </summary>
-		public void RemoveSelf()
-		{
-			parentSet.RemoveScene(this);
-		}
-
-		/// <summary>
 		/// Creates a new audio track and appends it to the tracks list
 		/// </summary>
 		public void AddTrack(string name)
 		{
-			Track track = new Track(this, name);
+			Track track = new Track(name);
 			tracks.Add(track);
 		}
 

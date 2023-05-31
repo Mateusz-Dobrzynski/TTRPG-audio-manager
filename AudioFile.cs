@@ -15,11 +15,10 @@ namespace TTRPG_Audio_Manager
         public int volume { get; set; } = 100;
         public string path { get; set; }
         public Track parentTrack { get; set; }
-        public AudioFile(Track parentTrack, string path)
+        public AudioFile(string path)
         {
             this.path = path;
             this.name = Path.GetFileNameWithoutExtension(path);
-            this.parentTrack = parentTrack;
         }
         public int fileHandle;
 

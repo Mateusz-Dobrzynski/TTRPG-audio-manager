@@ -91,7 +91,6 @@ namespace TTRPG_Audio_Manager
                 if (x.name == name)
                 {
                     chosenScene = x;
-                    chosenScene.parentSet = currentSet;
                     if (deleteText.Text == "Delete Scene")
                     {
                         deleteScene.ForeColor = System.Drawing.Color.DarkRed;
@@ -101,7 +100,7 @@ namespace TTRPG_Audio_Manager
                     }
                     else
                     {
-                        chosenScene.RemoveSelf();
+                        currentSet.RemoveScene(chosenScene);
                         sceneBox.Items.Clear();
                         sceneBox.Text = "";
                         foreach (Scene y in currentSet.scenes)
